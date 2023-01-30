@@ -22,3 +22,6 @@ The tools below provide email verification as a self-hosted solution, but due to
 - **check-if-email-exists** - https://github.com/reacherhq/check-if-email-exists
 - **email-exists** - https://github.com/MarkTiedemann/email-exists
 
+
+
+Site logo from [Juicy Fish](https://www.flaticon.com/authors/juicy-fish)
