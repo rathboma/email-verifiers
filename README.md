@@ -24,7 +24,7 @@ https://zerobounce.com
 
 They also offer list verification and API verification.
 
-### Validity / BriteVerify**
+### Validity / BriteVerify
 
 https://validity.com
 
