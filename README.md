@@ -1,3 +1,4 @@
+
 # Email Verifiers
 
 Email verification means - check if an email address exists or not without sending an email. This is useful if you manage large email marketing lists of consumer email addresses -- if a bunch of emails you send hard bounce, then you'll be blocked by your ESP. Email verification is a way to avoid that.
