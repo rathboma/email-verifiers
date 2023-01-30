@@ -24,4 +24,6 @@ The tools below provide email verification as a self-hosted solution, but due to
 
 
 
+## Attribution
+
 Site logo from [Juicy Fish](https://www.flaticon.com/authors/juicy-fish)
