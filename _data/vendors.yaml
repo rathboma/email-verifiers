@@ -1,0 +1,25 @@
+- name: Kickbox
+  description: Kickbox is a fairly large verification vendor owned and operated by ZiffDavis, a public conglomerate-style company. Kickbox was founded in 2014.
+  servers:
+    - US
+    - EU
+  rating: 4
+  accuracy: 5
+  price: 4
+  review: "/reviews/kickbox/"
+- name: NeverBounce
+  description: NeverBounce is the largest email verification vendor and is owned and operated by ZoomInfo, a public sales data company. NeverBounce was founded in XXXX
+  servers:
+    - US
+  rating: 3
+  accuracy: 4
+  price: 3
+  review: "/reviews/neverbounce"
+- name: ZeroBounce
+  description: ZeroBounce is an independent business ran out of XXX. They also provide sales targeting and data enrichment services.
+  rating: 3
+  accuracy: 4
+  price: 4
+  review: "/reviews/zerobounce"
+  servers:
+    - US

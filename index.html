@@ -1,0 +1,44 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+title: 
+---
+
+<section class="hero mt-5 mb-5">
+  <hgroup class="smallwrap">
+    <h1>Email Verifier Software <mark>Reviews</mark></h1>
+    <p class="secondary">Reviews and ratings for all email verification platforms. We're independent and objective.</p>
+  </hgroup>
+</section>
+
+<section class="smallwrap">
+  <h2>Commercial Vendors</h2>
+  <div id="commercial-table"></div>
+</section>
+
+<section class="smallwrap">
+  <h2>Self hosted tools</h2>
+  <div id="self-hosted-table"></div>
+</section>
+
+
+<script>
+  const tabledata = {{ site.data.vendors | jsonify }}
+   
+
+  const table = new Tabulator("#commercial-table", {
+    height: 205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+    data: tabledata, //assign data to table
+    layout: "fitColumns", //fit columns to width of table (optional)
+    columns: [ //Define Table Columns
+      { title: "Name", field: "name", width: 150 },
+      { title: "Accuracy", field: "accuracy",  formatter: "star"},
+      { title: "Price", field: "price",  formatter: "star"},
+      { title: "Overall", field: "rating", hozAlign: "left", formatter: "star" },
+      { title: "Learn", field: "review", formatter: "link", formatterParams: {label: "Review >"}}
+    ],
+  });
+
+</script>

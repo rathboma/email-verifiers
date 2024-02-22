@@ -1,0 +1,45 @@
+---
+---
+
+@import "spacing";
+
+header {
+  nav {
+    ul {
+      margin: auto;
+    }
+
+    img {
+      max-height: 5rem;
+      margin-left: -10px;
+    }
+  }
+}
+
+body {
+  --pico-mark-gradient: linear-gradient(to right, #d78dd2, #b999ee, #9da5e9, #8fa9f0);
+}
+
+
+mark {
+  padding: 0;
+  background: var(--pico-mark-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.smallwrap {
+  max-width: 800px;
+  margin: auto;
+}
+
+section.hero {
+  hgroup {
+    text-align: center;
+
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
