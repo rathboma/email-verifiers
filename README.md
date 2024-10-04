@@ -31,6 +31,12 @@ https://validity.com
 
 Briteverify used to be the 'best' offering, but now they're part of the validity suite, which is a whole bunch of email and sales tools bundled together.
 
+### Heybounce
+
+https://www.heybounce.io
+
+They offer list verification and real-time API verification. It can detect disposable emails, free/business emails, spam-traps, and academic emails.
+
 ## Open Source Tools
 
 The tools below provide email verification as a self-hosted solution, but due to the nature of how SMTP reputation works, they're probably not going to be super accurate unless you already have [warm IPs](https://blog.kickbox.com/what-is-ip-warming-why-is-it-important/). Plus many email providers just accept all emails without asking questions as an anti-spam measure, so your milage may vary.
