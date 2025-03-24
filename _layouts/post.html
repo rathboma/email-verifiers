@@ -1,0 +1,83 @@
+---
+layout: default
+---
+{% assign page_url = site.url | append: page.url %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page_url }}"
+  },
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.excerpt | strip_html | strip_newlines | escape }}",
+  "image": "{% if page.image %}{{ site.url }}{{ page.image }}{% else %}{{ site.url }}{{ site.logo }}{% endif %}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.logo }}"
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}"
+}
+</script>
+<article class="max-w-3xl mx-auto">
+  <header class="mb-8 bg-white p-6 rounded-lg shadow-sm">
+    <h1 class="text-3xl font-bold text-gray-900 mb-3">{{ page.title }}</h1>
+    <div class="text-sm text-gray-500 mb-2">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+      {% if page.categories %}
+      <span class="mx-1">•</span>
+      <span>
+        {% for category in page.categories %}
+          <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">{{ category }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+    {% if page.excerpt %}
+      <p class="text-lg text-gray-600 mt-4">{{ page.excerpt }}</p>
+    {% endif %}
+  </header>
+
+  <div class="prose prose-blue prose-lg max-w-none mb-12 bg-white px-8 py-6 rounded-lg shadow-sm">
+    {{ content }}
+  </div>
+
+  <div class="bg-blue-50 px-8 py-6 rounded-lg shadow-sm mb-10">
+    <h2 class="text-xl font-bold text-gray-900 mb-3">Stay Updated</h2>
+    <p class="mb-4">Subscribe to our newsletter for more email verification tips and best practices.</p>
+    <form class="flex flex-col sm:flex-row gap-2">
+      <input type="email" placeholder="Your email address" class="px-4 py-2 border border-gray-300 rounded-md flex-grow">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Subscribe</button>
+    </form>
+  </div>
+
+  <section class="mt-12 mb-10">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Articles</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | sample: 4 %}
+      {% for post in related_posts %}
+        <a href="{{ post.url }}" class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-50">
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{ post.title }}</h3>
+          <p class="font-normal text-gray-700">{{ post.excerpt | truncate: 120 }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+  
+  <div class="mt-10 pt-6 border-t border-gray-200">
+    <a href="/blog/" class="text-blue-600 hover:text-blue-800">&larr; Back to all posts</a>
+  </div>
+</article>

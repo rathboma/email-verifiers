@@ -1,0 +1,11 @@
+# robots.txt for EmailVerifiers
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://emailverifiers.com/sitemap.xml
+
+# Disallow admin-related paths
+Disallow: /admin/
+Disallow: /wp-admin/
