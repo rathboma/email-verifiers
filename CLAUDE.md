@@ -47,7 +47,7 @@ Our target audience are: marketers, developers, and product managers who might n
 ### Reviewing the live site
 1. You're going to check two blog posts: yesterday's post, and a random historical blog post
 2. Fetch them from the live website, review the HTML, look for a) rendering issues, b) broken links, c) invalid information
-3. If there are errors - fix and push them
+3. If there are errors - fix and commit them
 4. If no errors - don't do anything
 
 Guidance:
