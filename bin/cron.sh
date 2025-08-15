@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 source ~/.bashrc
-export GIT_SSH_COMMAND='ssh -i /home/rathboma/.ssh/ev_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=/home/rathboma/.ssh/known_hosts -o StrictHostKeyChecking=yes'
+export GIT_SSH_COMMAND='ssh -i /home/rathboma/.ssh/ev_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=/home/rathboma/.ssh/known_hosts -o StrictHostKeyChecking=no'
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd "$SCRIPT_DIR/.."
 
