@@ -11,3 +11,4 @@ git checkout main
 git reset --hard origin/main
 /home/rathboma/.local/bin/mise exec node@18 -- bin/automate.sh
 git push
+curl https://api.honeybadger.io/v1/check_in/0bI8JG &> /dev/null
