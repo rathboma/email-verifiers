@@ -54,5 +54,5 @@ Guidance:
 - Be careful with code blocks and escaping of content within a codeblock
 - Liquid syntax in a codeblock requires you to use {% raw %}
 - Set the blog post date to be yesterday's date, so that it appears right away
-
+- Don't just blog about email verification, but also blog about relevent topics related to the jobs of our target audience
 
