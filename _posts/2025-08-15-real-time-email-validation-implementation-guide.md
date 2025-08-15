@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Real-Time Email Validation: Complete Implementation Guide for Developers"
-date: 2025-08-15 09:30:00 -0500
+date: 2025-08-15 09:30:00
 categories: development api-integration
 excerpt: "Learn how to implement robust real-time email validation in your applications with practical code examples, API integration strategies, and performance optimization techniques."
 ---
