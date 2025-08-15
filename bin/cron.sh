@@ -6,5 +6,8 @@ export GIT_SSH_COMMAND='ssh -i /home/rathboma/.ssh/ev_rsa -o IdentitiesOnly=yes 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd "$SCRIPT_DIR/.."
 
-git pull
+git fetch origin
+git checkout main
+git reset --hard origin/main
 /home/rathboma/.local/bin/mise exec node@18 -- bin/automate.sh
+git push

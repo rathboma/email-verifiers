@@ -32,7 +32,7 @@ Goal of site: Serve as the #1 resource for people learning about email verificat
 ## Cron task instructions
 
 Your job is two things:
-1. To write, commit, and push a new blog post for the site.
+1. To write and commit a new blog post for the site.
 2. Review the live site and fix any mistakes
 
 
@@ -43,7 +43,6 @@ Our target audience are: marketers, developers, and product managers who might n
 2. Write a new blog post in the same style.
 3. Review the blog post to make sure the content is correct, and to verify it will compile to HTML correctly
 4. Commit the blog post
-5. Push the blog post to the remote repository
 
 ### Reviewing the live site
 1. You're going to check two blog posts: yesterday's post, and a random historical blog post
