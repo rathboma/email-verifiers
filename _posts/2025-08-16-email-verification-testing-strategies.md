@@ -413,7 +413,7 @@ const loadTestConfig = {
         url: '/verify',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer {{ $env.API_KEY }}'
+          'Authorization': 'Bearer $API_KEY'
         },
         json: {
           email: '{{ email }}'
