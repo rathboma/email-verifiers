@@ -64,29 +64,6 @@ cons:
   - Minimum purchase requirement for pay-as-you-go
   - Limited direct integrations with marketing platforms
 verdict: Verifalia provides enterprise-grade email verification with exceptional accuracy and technical capabilities. The service is particularly well-suited for developers and businesses that prioritize verification quality and reliability over cost.
-pricing: |
-  Verifalia offers both subscription plans and pay-as-you-go options:
-
-  **Subscription Plans (monthly):**
-  - Starter: $19/month (3,000 verifications)
-  - Business: $49/month (10,000 verifications)
-  - Professional: $189/month (50,000 verifications)
-  - Enterprise: Custom pricing
-
-  **Pay-as-you-go Credits:**
-  - 1,000 credits: $10 ($0.01 per verification)
-  - 5,000 credits: $40 ($0.008 per verification)
-  - 20,000 credits: $120 ($0.006 per verification)
-  - 100,000 credits: $500 ($0.005 per verification)
-
-  All plans include:
-  - Syntax and typo detection
-  - DNS/MX record checks
-  - Mailbox verification
-  - Disposable email detection
-  - Role-based email detection
-  - Free duplicate removal
-  - Advanced reporting
 ---
 
 ## Overview

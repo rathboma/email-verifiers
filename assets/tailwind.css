@@ -87,6 +87,32 @@
     font-family: inherit;
   }
 
+  /* Pricing table overrides to prevent prose conflicts */
+  .pricing-table table {
+    @apply w-full border-collapse;
+    border-spacing: 0;
+  }
+
+  .pricing-table thead {
+    @apply bg-gray-50;
+  }
+
+  .pricing-table th {
+    @apply px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+
+  .pricing-table td {
+    @apply px-4 py-3 text-gray-900 text-sm;
+  }
+
+  .pricing-table tbody {
+    @apply bg-white divide-y divide-gray-200;
+  }
+
+  .pricing-table tbody tr:hover {
+    @apply bg-gray-50;
+  }
+
   /* Syntax highlighting styles using Rouge default theme */
   .highlight .c { color: #998; font-style: italic; } /* Comment */
   .highlight .err { color: #a61717; background-color: #e3d2d2; } /* Error */

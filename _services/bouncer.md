@@ -13,6 +13,19 @@ slug: bouncer
 best_for: European businesses needing GDPR-compliant verification with toxicity detection
 pricing_url: "https://www.usebouncer.com/pricing"
 pricing_notes: "EU-based service with transparent pricing page. Free credits included with signup. Known for GDPR compliance and toxicity checking features. May have SSL certificate issues with automated requests."
+pricing:
+  - size: 1000
+    price: 5
+    per_email: 0.005
+  - size: 10000
+    price: 45
+    per_email: 0.0045
+  - size: 100000
+    price: 400
+    per_email: 0.004
+  - size: 1000000
+    price: 3500
+    per_email: 0.0035
 pros:
   - EU-based with GDPR compliance built-in
   - Comprehensive toxicity and catch-all detection
@@ -24,16 +37,6 @@ cons:
   - Newer player compared to established US providers
   - May have higher latency for non-European users
 verdict: Bouncer stands out as a premium European email verification service that prioritizes data privacy and regulatory compliance. With impressive performance metrics (4+ billion verified emails, <2% unknown results) and strong focus on toxicity detection, it's particularly valuable for businesses operating under GDPR requirements. While pricing isn't transparent upfront, the service quality and regulatory compliance justify consideration for privacy-conscious organizations.
-pricing: |
-  Bouncer uses a credit-based pricing system:
-
-  - Starting at approximately $0.005 per verification
-  - Volume discounts available for larger purchases
-  - Free credits included with new account signup
-  - Custom enterprise pricing available
-  - EU-based billing and data processing
-
-  All plans include comprehensive verification features and GDPR compliance.
 ---
 
 ## Overview

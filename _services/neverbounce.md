@@ -55,12 +55,6 @@ cons:
   - Interface is less intuitive than some competitors
   - Verification speed can be slower during peak times
 verdict: NeverBounce provides reliable email verification at competitive prices with good accuracy. Their ZoomInfo ownership provides advantages for sales teams already in that ecosystem, but might raise data usage concerns for some users. The service handles both bulk verification and real-time API validation effectively, making it a solid choice for most email verification needs.
-pricing: |
-  NeverBounce offers a straightforward pricing structure:
-  
-  - Pay-as-you-go starting at $0.003 per email
-  - Volume discounts available with prices decreasing based on quantity
-  - Credits never expire
   - 1,000 free verifications for new accounts
   - Custom enterprise pricing available
 ---

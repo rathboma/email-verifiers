@@ -11,6 +11,17 @@ slug: cheapest-email-verifiers
 
 Email verification is essential for maintaining list quality, but costs can add up quickly, especially for large databases. This guide focuses on finding the most cost-effective solutions that still deliver reliable results.
 
+<div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+<h3 class="text-lg font-bold text-blue-900 mb-3">🧮 Calculate Your Exact Costs</h3>
+<p class="text-blue-800 mb-4">Want to see exactly how much you'll pay for your specific email count? Use our interactive price calculator to compare all services instantly.</p>
+<a href="/price-calculator/" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-sm">
+<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+</svg>
+Price Calculator
+</a>
+</div>
+
 We'll compare not just the per-verification price, but also factors like free credits, volume discounts, accuracy rates, and feature sets to determine the true value proposition of each service.
 
 ## Pricing Structure Comparison
@@ -21,7 +32,7 @@ Here's how the providers stack up on their starting prices:
 
 {% assign sorted_services = site.services | where_exp: "service", "service.starting_price != 'Custom pricing'" | sort: "starting_price" %}
 
-<div class="overflow-x-auto">
+<div class="overflow-x-auto pricing-table">
 <table class="min-w-full bg-white border border-gray-300">
 <thead class="bg-gray-50">
 <tr>
@@ -38,34 +49,8 @@ Here's how the providers stack up on their starting prices:
 <a href="{{ service.url }}" class="text-blue-600 hover:text-blue-800 font-medium">{{ service.title }}</a>
 </td>
 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ service.starting_price }}</td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-{% if service.pricing %}
-{% assign lowest_price = 999 %}
-{% for tier in service.pricing %}
-{% if tier.per_email > 0 %}
-{% if tier.per_email < lowest_price %}
-{% assign lowest_price = tier.per_email %}
-{% endif %}
-{% endif %}
-{% endfor %}
-{% if lowest_price < 999 %}
-${{ lowest_price }} per email
-{% else %}
-{{ service.starting_price }}
-{% endif %}
-{% else %}
-{{ service.starting_price }}
-{% endif %}
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-{% if service.free_credits == 'unlimited' %}
-Unlimited
-{% elsif service.free_credits == 0 %}
-None
-{% else %}
-{{ service.free_credits }}
-{% endif %}
-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{% if service.pricing %}{% assign lowest_price = 999 %}{% for tier in service.pricing %}{% if tier.per_email > 0 %}{% if tier.per_email < lowest_price %}{% assign lowest_price = tier.per_email %}{% endif %}{% endif %}{% endfor %}{% if lowest_price < 999 %}${{ lowest_price }} per email{% else %}{{ service.starting_price }}{% endif %}{% else %}{{ service.starting_price }}{% endif %}</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{% if service.free_credits == 'unlimited' %}Unlimited{% elsif service.free_credits == 0 %}None{% else %}{{ service.free_credits }}{% endif %}</td>
 </tr>
 {% endfor %}
 </tbody>

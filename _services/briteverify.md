@@ -50,15 +50,6 @@ cons:
   - Interface can be complex for new users
   - Less suitable for small businesses on a budget
 verdict: Validity BriteVerify offers reliable email verification with the backing of Validity's comprehensive email deliverability platform. While it delivers good results, the higher pricing and enterprise focus make it most suitable for larger organizations that can benefit from the complete suite of Validity tools rather than businesses just needing standalone verification.
-pricing: |
-  BriteVerify uses a credit-based pricing system:
-  
-  - Starting at approximately $0.01 per verification
-  - Volume discounts available for larger purchases
-  - Enterprise pricing available for high-volume users
-  - Annual contracts required for certain features
-  - Additional costs for full Validity platform access
-  - Free trial available with limited verifications
 ---
 
 ## Overview

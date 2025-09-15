@@ -61,12 +61,6 @@ cons:
   - Limited free tier compared to some alternatives
   - Advanced features may require higher tier plans
 verdict: Kickbox stands out as a top-tier email verification service thanks to its strict anti-spammer policies that maintain the integrity of their verification results. The combination of accurate bulk verification and a versatile real-time API makes it suitable for various email list management needs. While its pricing is slightly higher than some competitors, the quality and reliability of results justify the cost for businesses serious about email deliverability.
-pricing: |
-  Kickbox uses a credit-based system with volume discounts:
-  
-  - Pay-as-you-go starting at $0.008 per email verification
-  - Volume discounts available for larger purchases
-  - 100 free credits for new accounts to test the service
   - Custom enterprise pricing for high-volume users
   
   All plans include both bulk verification and API access.

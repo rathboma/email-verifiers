@@ -13,6 +13,31 @@ slug: emailable
 best_for: Fast-growing companies and developers needing reliable, easy-to-implement verification
 pricing_url: "https://emailable.com/pricing"
 pricing_notes: "Developer-friendly service with transparent pricing. Known for fast verification speeds and modern API. Free tier available for testing."
+pricing:
+  - size: 5000
+    price: 38
+    per_email: 0.0076
+  - size: 10000
+    price: 60
+    per_email: 0.0060
+  - size: 25000
+    price: 141
+    per_email: 0.0056
+  - size: 50000
+    price: 245
+    per_email: 0.0049
+  - size: 100000
+    price: 420
+    per_email: 0.0042
+  - size: 250000
+    price: 750
+    per_email: 0.0030
+  - size: 500000
+    price: 1350
+    per_email: 0.0027
+  - size: 1000000
+    price: 2100
+    per_email: 0.0021
 pros:
   - Extremely fast verification (typically under 300ms per email)
   - Simple, developer-friendly API with multiple language SDKs
@@ -24,29 +49,6 @@ cons:
   - Limited advanced features compared to premium enterprise options
   - Fewer direct integrations with marketing platforms
 verdict: Emailable delivers a streamlined, highly accurate email verification service that strikes an excellent balance between simplicity and power. With its developer-friendly approach and emphasis on performance, it's an ideal choice for growing businesses that prioritize reliability and ease of implementation.
-pricing: |
-  Emailable offers straightforward monthly subscriptions and pay-as-you-go options:
-
-  **Monthly Subscriptions:**
-  - Starter: $24/month (5,000 verifications)
-  - Growth: $99/month (25,000 verifications)
-  - Business: $199/month (50,000 verifications)
-  - Enterprise: Custom pricing
-
-  **Pay-as-you-go Credits:**
-  - 1,000 credits: $10 ($0.010 per verification)
-  - 10,000 credits: $90 ($0.009 per verification)
-  - 25,000 credits: $200 ($0.008 per verification)
-  - 100,000 credits: $700 ($0.007 per verification)
-
-  All plans include:
-  - Full verification suite
-  - API access
-  - Dashboard access
-  - Basic reporting
-  - Email support
-  
-  Higher tiers include additional features like phone support, dedicated account managers, and custom integrations.
 ---
 
 ## Overview

@@ -43,7 +43,7 @@ layout: default
   {% if page.services %}
   <section class="mb-10">
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Comparison Table</h2>
-    <div class="overflow-x-auto shadow-md rounded-lg">
+    <div class="overflow-x-auto shadow-md rounded-lg pricing-table">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
           <tr>
@@ -97,7 +97,164 @@ layout: default
     </div>
   </section>
   {% endif %}
-  
+
+  {% if page.services %}
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Price Comparison Calculator</h2>
+    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg shadow-sm">
+      <div class="mb-6">
+        <label for="comparison-email-count" class="block text-lg font-medium text-gray-900 mb-3">How many emails do you need to verify?</label>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <input type="number" id="comparison-email-count"
+                 class="flex-1 px-4 py-3 text-lg border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                 placeholder="Enter number of emails" min="1" value="10000">
+          <div class="text-sm text-gray-600 sm:text-right">
+            <div>Compare prices across all services</div>
+            <div>instantly as you type</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto pricing-table">
+        <table class="min-w-full bg-white rounded-lg shadow">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Service</th>
+              <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Estimated Cost</th>
+              <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Cost per Email</th>
+              <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Savings vs Most Expensive</th>
+            </tr>
+          </thead>
+          <tbody id="price-comparison-results" class="divide-y divide-gray-200">
+            <!-- Results will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      const input = document.getElementById('comparison-email-count');
+      const resultsTable = document.getElementById('price-comparison-results');
+
+      // Service pricing data
+      const services = [
+        {% for service_name in page.services %}
+          {% assign service = site.services | where: "slug", service_name | first %}
+          {% if service %}
+            {
+              name: '{{ service.title }}',
+              slug: '{{ service.slug }}',
+              url: '{{ service.url }}',
+              pricing: {{ service.pricing | default: '[]' | jsonify }},
+              startingPrice: '{{ service.starting_price }}'
+            }{% unless forloop.last %},{% endunless %}
+          {% endif %}
+        {% endfor %}
+      ];
+
+      function calculateServiceCost(service, emailCount) {
+        if (!service.pricing || service.pricing.length === 0) {
+          return { cost: null, perEmail: null, display: service.startingPrice };
+        }
+
+        // Find appropriate pricing tier
+        let selectedTier = null;
+        for (let tier of service.pricing) {
+          if (emailCount <= tier.size) {
+            selectedTier = tier;
+            break;
+          }
+        }
+
+        // Use largest tier if no tier found
+        if (!selectedTier && service.pricing.length > 0) {
+          selectedTier = service.pricing[service.pricing.length - 1];
+        }
+
+        if (!selectedTier) {
+          return { cost: null, perEmail: null, display: service.startingPrice };
+        }
+
+        let cost;
+        if (emailCount <= selectedTier.size) {
+          cost = selectedTier.price;
+        } else {
+          cost = emailCount * selectedTier.per_email;
+        }
+
+        return {
+          cost: cost,
+          perEmail: cost / emailCount,
+          display: cost === 0 ? 'Free' : '$' + cost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+        };
+      }
+
+      function updateComparison() {
+        const emailCount = parseInt(input.value);
+        if (!emailCount || emailCount <= 0) {
+          resultsTable.innerHTML = '<tr><td colspan="4" class="px-4 py-8 text-center text-gray-500">Enter a valid number of emails to see price comparison</td></tr>';
+          return;
+        }
+
+        // Calculate costs for all services
+        const results = services.map(service => {
+          const result = calculateServiceCost(service, emailCount);
+          return {
+            ...service,
+            ...result
+          };
+        }).filter(result => result.cost !== null);
+
+        // Sort by cost (free items first, then by price)
+        results.sort((a, b) => {
+          if (a.cost === 0 && b.cost !== 0) return -1;
+          if (b.cost === 0 && a.cost !== 0) return 1;
+          return a.cost - b.cost;
+        });
+
+        // Find most expensive for savings calculation
+        const mostExpensive = Math.max(...results.map(r => r.cost));
+
+        // Generate table rows
+        let html = '';
+        results.forEach((result, index) => {
+          const savings = mostExpensive > 0 && result.cost < mostExpensive
+            ? ((mostExpensive - result.cost) / mostExpensive * 100).toFixed(1) + '%'
+            : (result.cost === mostExpensive ? '0%' : '-');
+
+          const perEmailDisplay = result.cost === 0 ? 'Free' : '$' + result.perEmail.toFixed(4);
+
+          html += `
+            <tr class="${index === 0 ? 'bg-green-50' : 'hover:bg-gray-50'}">
+              <td class="px-4 py-3">
+                <a href="${result.url}" class="text-blue-600 hover:text-blue-800 font-medium">${result.name}</a>
+                ${index === 0 ? '<span class="ml-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Best Price</span>' : ''}
+              </td>
+              <td class="px-4 py-3 font-semibold ${index === 0 ? 'text-green-600' : 'text-gray-900'}">${result.display}</td>
+              <td class="px-4 py-3 text-gray-600">${perEmailDisplay}</td>
+              <td class="px-4 py-3 text-gray-600">${savings}</td>
+            </tr>
+          `;
+        });
+
+        if (results.length === 0) {
+          html = '<tr><td colspan="4" class="px-4 py-8 text-center text-gray-500">No pricing data available for comparison</td></tr>';
+        }
+
+        resultsTable.innerHTML = html;
+      }
+
+      input.addEventListener('input', updateComparison);
+      input.addEventListener('change', updateComparison);
+
+      // Initial calculation
+      updateComparison();
+    })();
+    </script>
+  </section>
+  {% endif %}
+
   <div class="bg-blue-50 px-8 py-6 rounded-lg shadow-sm my-8">
     <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Recommendation</h2>
     <div class="prose prose-blue max-w-none">

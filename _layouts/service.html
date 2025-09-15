@@ -98,19 +98,150 @@ layout: default
     </div>
   </header>
 
-  <div class="prose prose-blue max-w-none mb-8 bg-white px-8 py-6 rounded-lg shadow-sm">
-    {{ content }}
+  <div id="content-overview" class="prose prose-blue max-w-none mb-8 bg-white px-8 py-6 rounded-lg shadow-sm">
+    <!-- Overview section will be inserted here -->
   </div>
-  
+
   {% if page.pricing %}
   <section class="mb-8">
-    <h2 class="text-2xl font-bold text-gray-900 mb-4">Pricing</h2>
-    <div class="prose prose-blue max-w-none bg-white px-8 py-6 rounded-lg shadow-sm">
-      {{ page.pricing | markdownify }}
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Pricing</h2>
+
+    <!-- Pricing Calculator -->
+    <div class="bg-blue-50 p-6 rounded-lg shadow-sm mb-6">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">Calculate Your Cost</h3>
+      <div class="flex flex-col sm:flex-row items-start sm:items-end gap-4">
+        <div class="flex-1">
+          <label for="email-count-{{ page.slug }}" class="block text-sm font-medium text-gray-700 mb-2">Number of emails to verify</label>
+          <input type="number" id="email-count-{{ page.slug }}"
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                 placeholder="Enter email count" min="1" value="1000">
+        </div>
+        <div class="flex-shrink-0">
+          <div class="text-sm text-gray-600 mb-1">Estimated cost:</div>
+          <div id="calculated-cost-{{ page.slug }}" class="text-2xl font-bold text-blue-600">-</div>
+        </div>
+      </div>
     </div>
+
+    <!-- Pricing Table -->
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden pricing-table">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Volume</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Price</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cost per Email</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            {% for tier in page.pricing %}
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                {{ tier.size | number_with_delimiter }} emails
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                {% if tier.price == 0 %}
+                  Free
+                {% else %}
+                  ${{ tier.price | number_with_delimiter }}
+                {% endif %}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                {% if tier.per_email == 0 %}
+                  Free
+                {% else %}
+                  ${{ tier.per_email }}
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    {% if page.pricing_notes %}
+    <div class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+      <div class="text-sm text-yellow-800">
+        <strong>Pricing Notes:</strong> {{ page.pricing_notes }}
+      </div>
+    </div>
+    {% endif %}
+
+    <script>
+    (function() {
+      const input = document.getElementById('email-count-{{ page.slug }}');
+      const costDisplay = document.getElementById('calculated-cost-{{ page.slug }}');
+
+      // Safe parsing of pricing data
+      let pricingTiers;
+      try {
+        const rawPricing = {{ page.pricing | jsonify }};
+        pricingTiers = Array.isArray(rawPricing) ? rawPricing : [];
+      } catch (e) {
+        console.warn('Invalid pricing data for {{ page.slug }}:', e);
+        pricingTiers = [];
+      }
+
+      function calculateCost(emailCount) {
+        if (!emailCount || emailCount <= 0 || isNaN(emailCount)) return '-';
+        if (!pricingTiers || pricingTiers.length === 0) return 'Contact for pricing';
+
+        // Find the appropriate pricing tier
+        let selectedTier = null;
+        for (let tier of pricingTiers) {
+          if (tier && typeof tier.size === 'number' && emailCount <= tier.size) {
+            selectedTier = tier;
+            break;
+          }
+        }
+
+        // If no tier found, use the largest tier's per_email rate
+        if (!selectedTier && pricingTiers.length > 0) {
+          selectedTier = pricingTiers[pricingTiers.length - 1];
+        }
+
+        if (!selectedTier || typeof selectedTier.price === 'undefined') return 'Contact for pricing';
+
+        // Calculate based on per_email rate for volumes above tier size
+        let cost;
+        if (emailCount <= selectedTier.size) {
+          cost = selectedTier.price;
+        } else {
+          if (typeof selectedTier.per_email !== 'number') return 'Contact for pricing';
+          cost = emailCount * selectedTier.per_email;
+        }
+
+        if (cost === 0) return 'Free';
+        if (isNaN(cost)) return 'Contact for pricing';
+
+        return '$' + cost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function updateCost() {
+        const emailCount = parseInt(input.value);
+        if (costDisplay) {
+          costDisplay.textContent = calculateCost(emailCount);
+        }
+      }
+
+      if (input && costDisplay) {
+        input.addEventListener('input', updateCost);
+        input.addEventListener('change', updateCost);
+
+        // Initial calculation
+        updateCost();
+      }
+    })();
+    </script>
   </section>
   {% endif %}
-  
+
+  <div id="content-remaining" class="prose prose-blue max-w-none mb-8 bg-white px-8 py-6 rounded-lg shadow-sm" style="display:none;">
+    <!-- Remaining content will be inserted here -->
+  </div>
+
   <section class="mb-8">
     <h2 class="text-2xl font-bold text-gray-900 mb-4">Pros & Cons</h2>
     <div class="grid md:grid-cols-2 gap-6">
@@ -165,3 +296,59 @@ layout: default
     </div>
   </section>
 </article>
+
+<script>
+(function() {
+  // Get the full content from Jekyll
+  const fullContent = `{{ content | markdownify }}`;
+
+  // Create a temporary div to parse the HTML
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = fullContent;
+
+  // Find the first h2 element (should be "## Overview")
+  const firstH2 = tempDiv.querySelector('h2');
+
+  if (firstH2) {
+    // Find the next h2 element after overview
+    let nextH2 = firstH2.nextElementSibling;
+    let overviewContent = '';
+    let remainingContent = '';
+
+    // Build overview content (everything until the next h2)
+    let currentElement = firstH2;
+    while (currentElement && currentElement.tagName !== 'H2' || currentElement === firstH2) {
+      overviewContent += currentElement.outerHTML;
+      currentElement = currentElement.nextElementSibling;
+      if (currentElement && currentElement.tagName === 'H2' && currentElement !== firstH2) {
+        break;
+      }
+    }
+
+    // Build remaining content (everything from the second h2 onwards)
+    while (currentElement) {
+      remainingContent += currentElement.outerHTML;
+      currentElement = currentElement.nextElementSibling;
+    }
+
+    // Insert the content into their respective containers
+    const overviewContainer = document.getElementById('content-overview');
+    const remainingContainer = document.getElementById('content-remaining');
+
+    if (overviewContainer) {
+      overviewContainer.innerHTML = overviewContent;
+    }
+
+    if (remainingContainer && remainingContent.trim()) {
+      remainingContainer.innerHTML = remainingContent;
+      remainingContainer.style.display = 'block';
+    }
+  } else {
+    // Fallback: if no h2 found, show all content in overview
+    const overviewContainer = document.getElementById('content-overview');
+    if (overviewContainer) {
+      overviewContainer.innerHTML = fullContent;
+    }
+  }
+})();
+</script>

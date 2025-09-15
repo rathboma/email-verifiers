@@ -8,7 +8,7 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: $0.004 per email
-free_credits: 0
+free_credits: 100
 slug: emaillistverify
 best_for: Budget-conscious marketers needing fast bulk verification
 pricing:
@@ -61,22 +61,6 @@ cons:
   - Limited customer support options
   - Basic reporting capabilities
 verdict: EmailListVerify offers an excellent balance of pricing and accuracy, making it a strong choice for businesses needing to verify large lists without breaking the bank. While the interface could use modernization, the core service delivers reliable results.
-pricing: |
-  EmailListVerify uses a straightforward credit-based pricing system:
-
-  - Pay-as-you-go: Starting at $0.004 per verification (minimum purchase $5)
-  - 100,000 emails: $300 ($0.003 per email)
-  - 500,000 emails: $1,250 ($0.0025 per email)
-  - 1,000,000 emails: $2,000 ($0.002 per email)
-  - Custom pricing available for larger lists
-
-  All packages include:
-  - Syntax validation
-  - Domain verification
-  - Mailbox verification
-  - Role-based email detection
-  - Disposable email detection
-  - Free duplicate removal
 ---
 
 ## Overview

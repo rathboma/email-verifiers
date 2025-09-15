@@ -52,12 +52,6 @@ cons:
   - Data enrichment features cost extra
   - Processing times can be longer for large lists
 verdict: ZeroBounce delivers excellent email verification accuracy with the added benefit of useful data enrichment features. The service provides a good balance of features, usability, and pricing, making it particularly suitable for businesses that want to not only verify emails but also gather additional intelligence about their contacts. The monthly free credits are a nice bonus for small businesses or those with occasional verification needs.
-pricing: |
-  ZeroBounce offers a credit-based pricing model:
-  
-  - Starting at $0.004 per email verification
-  - Volume discounts for larger purchases
-  - Free 100 credits per month for all users
   - Data enrichment available at additional cost
   - Credits valid for one year from purchase
   - Enterprise pricing available for high-volume users
