@@ -8,8 +8,51 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: $0.006 per email
-best_for: Developers and businesses requiring high precision verification
+free_credits: 25
 slug: verifalia
+best_for: Developers and businesses requiring high precision verification
+pricing:
+  - size: 1000
+    price: 7.90
+    per_email: 0.0079
+  - size: 2500
+    price: 18.90
+    per_email: 0.0076
+  - size: 5000
+    price: 28.90
+    per_email: 0.0058
+  - size: 10000
+    price: 49.90
+    per_email: 0.0050
+  - size: 25000
+    price: 119.00
+    per_email: 0.0048
+  - size: 50000
+    price: 219.00
+    per_email: 0.0044
+  - size: 100000
+    price: 389.00
+    per_email: 0.0039
+  - size: 250000
+    price: 690.00
+    per_email: 0.0028
+  - size: 500000
+    price: 990.00
+    per_email: 0.0020
+  - size: 1000000
+    price: 1490.00
+    per_email: 0.0015
+  - size: 2500000
+    price: 2490.00
+    per_email: 0.0010
+  - size: 5000000
+    price: 3690.00
+    per_email: 0.0007
+  - size: 10000000
+    price: 4890.00
+    per_email: 0.0005
+pricing_url: "https://verifalia.com/pricing"
+pricing_notes: "Pricing may require manual verification. Known for premium accuracy with corresponding pricing. Developer-friendly with comprehensive API documentation. Offers different verification levels: Standard (1 credit), High (2 credits), Extreme (4 credits). Pricing shown is for Standard verification level."
 pros:
   - Outstanding verification accuracy (99.5%+)
   - Comprehensive, developer-friendly API with multiple SDKs

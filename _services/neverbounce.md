@@ -8,8 +8,42 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: $0.003 per email
-best_for: Sales teams who already use ZoomInfo and need integrated verification
+free_credits: 1000
 slug: neverbounce
+best_for: Sales teams who already use ZoomInfo and need integrated verification
+pricing:
+  - size: 1000
+    price: 8
+    per_email: 0.0080
+  - size: 5000
+    price: 40
+    per_email: 0.0080
+  - size: 10000
+    price: 50
+    per_email: 0.0050
+  - size: 25000
+    price: 125
+    per_email: 0.0050
+  - size: 50000
+    price: 250
+    per_email: 0.0050
+  - size: 100000
+    price: 400
+    per_email: 0.0040
+  - size: 250000
+    price: 750
+    per_email: 0.0030
+  - size: 500000
+    price: 1500
+    per_email: 0.0030
+  - size: 1000000
+    price: 2500
+    per_email: 0.0025
+  - size: 2000000
+    price: 4000
+    per_email: 0.0020
+pricing_url: "https://neverbounce.com/pricing"
+pricing_notes: "NeverBounce blocks automated requests with 403 errors. Pricing requires manual verification. Known for competitive rates starting around $0.003/email with volume discounts. 1,000 free credits for new accounts."
 pros:
   - Competitive pricing structure
   - Strong API documentation and implementation

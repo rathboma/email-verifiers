@@ -8,8 +8,36 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: $0.01 per email
-best_for: Enterprise users who need a complete email marketing solution beyond verification
+free_credits: 25
 slug: briteverify
+best_for: Enterprise users who need a complete email marketing solution beyond verification
+pricing:
+  - size: 5000
+    price: 40
+    per_email: 0.0080
+  - size: 10000
+    price: 80
+    per_email: 0.0080
+  - size: 20000
+    price: 150
+    per_email: 0.0075
+  - size: 30000
+    price: 210
+    per_email: 0.0070
+  - size: 50000
+    price: 325
+    per_email: 0.0065
+  - size: 100000
+    price: 600
+    per_email: 0.0060
+  - size: 250000
+    price: 1250
+    per_email: 0.0050
+  - size: 500000
+    price: 2250
+    per_email: 0.0045
+pricing_url: "https://www.validity.com/briteverify/"
+pricing_notes: "Part of Validity suite - pricing typically requires consultation. Known for premium pricing focused on enterprise customers. Free trial available with limited verifications."
 pros:
   - Part of comprehensive email deliverability suite
   - High accuracy rates on major email providers

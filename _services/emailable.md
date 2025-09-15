@@ -8,8 +8,11 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: $0.007 per email
-best_for: Fast-growing companies and developers needing reliable, easy-to-implement verification
+free_credits: 250
 slug: emailable
+best_for: Fast-growing companies and developers needing reliable, easy-to-implement verification
+pricing_url: "https://emailable.com/pricing"
+pricing_notes: "Developer-friendly service with transparent pricing. Known for fast verification speeds and modern API. Free tier available for testing."
 pros:
   - Extremely fast verification (typically under 300ms per email)
   - Simple, developer-friendly API with multiple language SDKs

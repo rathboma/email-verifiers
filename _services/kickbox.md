@@ -8,8 +8,48 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: $0.008 per email
-best_for: Companies serious about email marketing quality who need high deliverability
+free_credits: 100
 slug: kickbox
+best_for: Companies serious about email marketing quality who need high deliverability
+pricing:
+  - size: 100
+    price: 0
+    per_email: 0.0000
+  - size: 500
+    price: 5
+    per_email: 0.0100
+  - size: 1000
+    price: 10
+    per_email: 0.0100
+  - size: 2500
+    price: 25
+    per_email: 0.0100
+  - size: 5000
+    price: 40
+    per_email: 0.0080
+  - size: 10000
+    price: 80
+    per_email: 0.0080
+  - size: 25000
+    price: 200
+    per_email: 0.0080
+  - size: 50000
+    price: 400
+    per_email: 0.0080
+  - size: 100000
+    price: 800
+    per_email: 0.0080
+  - size: 250000
+    price: 1500
+    per_email: 0.0060
+  - size: 500000
+    price: 2500
+    per_email: 0.0050
+  - size: 1000000
+    price: 4000
+    per_email: 0.0040
+pricing_url: "https://kickbox.com/pricing"
+pricing_notes: "Pricing displayed in clear tiers on main pricing page. 100 free credits for new accounts. No monthly fees, pay-as-you-go model only. Higher volume discounts available at 250k+ emails."
 pros:
   - Strong anti-fraud measures that maintain verification quality
   - Excellent API documentation for developers

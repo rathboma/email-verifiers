@@ -8,8 +8,48 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: $0.004 per email
-best_for: Budget-conscious marketers needing fast bulk verification
+free_credits: 0
 slug: emaillistverify
+best_for: Budget-conscious marketers needing fast bulk verification
+pricing:
+  - size: 1000
+    price: 5
+    per_email: 0.0050
+  - size: 5000
+    price: 17
+    per_email: 0.0034
+  - size: 10000
+    price: 27
+    per_email: 0.0027
+  - size: 25000
+    price: 54
+    per_email: 0.0022
+  - size: 50000
+    price: 98
+    per_email: 0.0020
+  - size: 100000
+    price: 186
+    per_email: 0.0019
+  - size: 250000
+    price: 276
+    per_email: 0.0011
+  - size: 500000
+    price: 356
+    per_email: 0.0007
+  - size: 1000000
+    price: 474
+    per_email: 0.0005
+  - size: 2500000
+    price: 942
+    per_email: 0.0004
+  - size: 5000000
+    price: 1576
+    per_email: 0.0003
+  - size: 10000000
+    price: 2606
+    per_email: 0.0003
+pricing_url: "https://www.emaillistverify.com/pricing"
+pricing_notes: "Homepage mentions 100 free verifications when creating account, but pricing page doesn't show exact dollar amounts without signup. Offers pay-as-you-go and monthly subscription (10% discount). Known for competitive bulk pricing."
 pros:
   - Very competitive pricing structure
   - 98% claimed accuracy rate

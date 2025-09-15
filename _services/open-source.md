@@ -8,8 +8,11 @@ offers_bulk: true
 offers_api: true
 offers_integrations: false
 starting_price: Free (Self-hosted)
-best_for: Developers with small verification needs who have technical expertise
+free_credits: unlimited
 slug: open-source
+best_for: Developers with small verification needs who have technical expertise
+pricing_url: "https://github.com/search?q=email+verification"
+pricing_notes: "Free open-source solutions available on GitHub. Check repositories like email-verifier (Go), check-if-email-exists (Rust), and others. Requires self-hosting and technical setup. Server costs vary by usage."
 pros:
   - Free to use (except hosting costs)
   - Full control over verification process

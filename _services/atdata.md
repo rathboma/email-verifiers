@@ -8,8 +8,11 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: Custom pricing
-best_for: Enterprise clients seeking comprehensive email intelligence beyond simple verification
+free_credits: 0
 slug: atdata
+best_for: Enterprise clients seeking comprehensive email intelligence beyond simple verification
+pricing_url: "https://atdata.com/contact"
+pricing_notes: "Enterprise-only custom pricing. Requires consultation for quotes. Focus on data enhancement and audience insights beyond basic verification. No transparent pricing available."
 pros:
   - Combined email verification and audience insights
   - Advanced data enrichment capabilities

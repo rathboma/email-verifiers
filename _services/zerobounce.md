@@ -8,8 +8,39 @@ offers_bulk: true
 offers_api: true
 offers_integrations: true
 starting_price: $0.004 per email
-best_for: Businesses needing additional data enrichment with their email verification
+free_credits: 100
 slug: zerobounce
+best_for: Businesses needing additional data enrichment with their email verification
+pricing:
+  - size: 2000
+    price: 20
+    per_email: 0.0100
+  - size: 5000
+    price: 45
+    per_email: 0.0090
+  - size: 10000
+    price: 80
+    per_email: 0.0080
+  - size: 25000
+    price: 190
+    per_email: 0.0076
+  - size: 50000
+    price: 375
+    per_email: 0.0075
+  - size: 100000
+    price: 425
+    per_email: 0.0043
+  - size: 250000
+    price: 940
+    per_email: 0.0038
+  - size: 500000
+    price: 1800
+    per_email: 0.0036
+  - size: 1000000
+    price: 2750
+    per_email: 0.0028
+pricing_url: "https://www.zerobounce.net/pricing"
+pricing_notes: "Pricing page may load as CSS only via automated requests. Manual verification needed. Known for monthly free credits and competitive volume pricing. Domain redirects from .com to .net."
 pros:
   - High accuracy rates in testing
   - Additional data enrichment capabilities
