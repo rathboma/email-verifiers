@@ -2509,7 +2509,6 @@ class PredictiveDeliverabilityAnalytics:
         
         return predictive_alerts
 ```
-{% endraw %}
 
 ## Integration Best Practices
 
