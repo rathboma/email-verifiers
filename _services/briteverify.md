@@ -2,7 +2,7 @@
 layout: service
 title: Validity BriteVerify
 website: https://www.validity.com/briteverify/
-rating: 4.2
+rating: 4
 excerpt: A well-established email verification service that's now part of Validity's broader email marketing suite, offering reliable verification but at premium pricing.
 offers_bulk: true
 offers_api: true

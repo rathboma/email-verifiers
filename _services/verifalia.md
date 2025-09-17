@@ -2,7 +2,7 @@
 layout: service
 title: Verifalia
 website: https://verifalia.com
-rating: 4.7
+rating: 3
 excerpt: A premium email verification service with exceptional accuracy and developer-friendly features.
 offers_bulk: true
 offers_api: true

@@ -2,7 +2,7 @@
 layout: service
 title: Emailable
 website: https://emailable.com
-rating: 4.6
+rating: 4
 excerpt: A modern, developer-friendly email verification service with exceptional accuracy and speed.
 offers_bulk: true
 offers_api: true

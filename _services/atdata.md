@@ -2,7 +2,7 @@
 layout: service
 title: AtData
 website: https://www.atdata.com
-rating: 4.5
+rating: 4
 excerpt: An enterprise-level email validation and data enhancement platform with advanced analytics capabilities.
 offers_bulk: true
 offers_api: true

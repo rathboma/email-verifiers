@@ -2,7 +2,7 @@
 layout: service
 title: Open Source Email Verification Tools
 website: 
-rating: 3.5
+rating: 3
 excerpt: Free, self-hosted alternatives to commercial email verification services that can be effective for some use cases but typically provide less reliable results.
 offers_bulk: true
 offers_api: true

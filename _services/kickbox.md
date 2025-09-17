@@ -2,7 +2,7 @@
 layout: service
 title: Kickbox
 website: https://kickbox.com
-rating: 4.8
+rating: 5
 excerpt: A reliable email verification service with both bulk verification and real-time API, known for its strict anti-spammer policies and high accuracy.
 offers_bulk: true
 offers_api: true

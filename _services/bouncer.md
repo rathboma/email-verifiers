@@ -2,7 +2,7 @@
 layout: service
 title: Bouncer
 website: https://www.usebouncer.com
-rating: 4.8
+rating: 4
 excerpt: A European-based email verification service with high accuracy rates, GDPR compliance, and comprehensive toxicity checking capabilities.
 offers_bulk: true
 offers_api: true

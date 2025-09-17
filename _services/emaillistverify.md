@@ -2,7 +2,7 @@
 layout: service
 title: EmailListVerify
 website: https://www.emaillistverify.com
-rating: 4.2
+rating: 2
 excerpt: A reliable email verification service with competitive pricing and high accuracy.
 offers_bulk: true
 offers_api: true

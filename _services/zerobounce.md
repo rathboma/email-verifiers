@@ -2,7 +2,7 @@
 layout: service
 title: ZeroBounce
 website: https://zerobounce.com
-rating: 4.6
+rating: 4
 excerpt: A comprehensive email verification service with high accuracy rates, data enrichment features, and both bulk and API verification options.
 offers_bulk: true
 offers_api: true

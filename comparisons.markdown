@@ -11,13 +11,37 @@ permalink: /comparisons/
     </p>
   </div>
   
-  <div class="grid gap-6 md:grid-cols-2">
-    {% for comparison in site.comparisons %}
-      <a href="{{ comparison.url }}" class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-50">
-        <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{ comparison.title }}</h3>
-        <p class="font-normal text-gray-700">{{ comparison.description }}</p>
-      </a>
-    {% endfor %}
+  <!-- Featured Comparisons -->
+  {% assign featured_comparisons = site.comparisons | where: "featured", true %}
+  {% if featured_comparisons.size > 0 %}
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">🌟 Popular Comparisons</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {% for comparison in featured_comparisons %}
+          <a href="{{ comparison.url }}" class="block p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200 shadow-md hover:shadow-lg hover:border-blue-300 transition-all duration-200">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="text-lg font-bold tracking-tight text-blue-900">{{ comparison.title }}</h3>
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium ml-2 flex-shrink-0">Featured</span>
+            </div>
+            <p class="font-normal text-blue-800 text-sm">{{ comparison.description }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- All Comparisons -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">All Service Comparisons</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      {% assign regular_comparisons = site.comparisons | where: "featured", nil %}
+      {% for comparison in regular_comparisons %}
+        <a href="{{ comparison.url }}" class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-50 hover:shadow-lg transition-all duration-200">
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{ comparison.title }}</h3>
+          <p class="font-normal text-gray-700">{{ comparison.description }}</p>
+        </a>
+      {% endfor %}
+    </div>
   </div>
 </div>
 

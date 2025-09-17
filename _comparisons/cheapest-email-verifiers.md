@@ -3,6 +3,7 @@ layout: comparison
 title: Cheapest Email Verification Services (2025)
 description: Find the most affordable email verification services that still deliver reliable results, comparing pricing plans, free options, and value for money.
 services: [neverbounce, zerobounce, kickbox, open-source]
+featured: true
 recommendation: For businesses seeking the most affordable email verification solution that still delivers reliable results, NeverBounce offers the best combination of low pricing and acceptable accuracy. Starting at just $0.003 per verification with a generous free tier of 1,000 credits, it provides the most value for budget-conscious users. If you have technical resources and are willing to accept lower accuracy, open source options can provide completely free verification with the trade-off of more setup work and generally less reliable results.
 slug: cheapest-email-verifiers
 ---

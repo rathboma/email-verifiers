@@ -2,7 +2,7 @@
 layout: service
 title: NeverBounce
 website: https://neverbounce.com
-rating: 4.5
+rating: 4
 excerpt: A reliable email verification solution owned by ZoomInfo that offers effective bulk verification and API services for real-time validation.
 offers_bulk: true
 offers_api: true
