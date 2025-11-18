@@ -25,7 +25,8 @@
   function addTrackingParameter(url, domain) {
     const referralCodes = [
       { domain: 'emaillistverify.com', key: 'red', code: 'rathbo'},
-      { domain: 'usebouncer.com', newUrl: 'https://withlove.usebouncer.com/ptpivxlk1iee'}
+      { domain: 'usebouncer.com', newUrl: 'https://withlove.usebouncer.com/ptpivxlk1iee'},
+      { domain: 'zerobounce.com', newUrl: 'https://aff.zerobounce.net/e19rG6'},
     ]
 
     const found = referralCodes.find(({domain}) => domain === domain)
