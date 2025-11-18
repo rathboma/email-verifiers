@@ -22,6 +22,25 @@
     }
   }
 
+  function addTrackingParameter(url, domain) {
+    const referralCodes = [
+      { domain: 'emaillistverify.com', key: 'red', code: 'rathbo'},
+      { domain: 'usebouncer.com', newUrl: 'https://withlove.usebouncer.com/ptpivxlk1iee'}
+    ]
+
+    const found = referralCodes.find(({domain}) => domain === domain)
+    if (!found) return url
+    // some sites need a totally new link
+    if (found.newUrl) return found.newUrl
+    try {
+      const urlObj = new URL(url)
+      urlObj.searchParams.set(found.key, found.code)
+      return urlObj.toString()
+    } catch (e) {
+      return url
+    }
+  }
+
   // Function to handle external link clicks
   function handleExternalLinkClick(event) {
     const link = event.currentTarget;
@@ -31,12 +50,12 @@
     if (!domain) return;
 
     // Fire Fathom tracking event
-    if (window.fathom && typeof window.fathom.trackGoal === 'function') {
-      window.fathom.trackGoal('click-' + domain, 0);
+    if (window.fathom && typeof window.fathom.trackEvent === 'function') {
+      window.fathom.trackEvent('click-' + domain);
     }
 
     // Modify the URL with ref parameter
-    const modifiedUrl = addRefParameter(originalUrl);
+    const modifiedUrl = addTrackingParameter(addRefParameter(originalUrl), domain);
 
     // Update the href and allow the click to proceed
     link.href = modifiedUrl;
