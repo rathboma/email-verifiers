@@ -29,7 +29,7 @@
       { domain: 'zerobounce.com', newUrl: 'https://aff.zerobounce.net/e19rG6'},
     ]
 
-    const found = referralCodes.find(({domain}) => domain === domain)
+    const found = referralCodes.find(({domain: d}) => domain.includes(d))
     if (!found) return url
     // some sites need a totally new link
     if (found.newUrl) return found.newUrl
