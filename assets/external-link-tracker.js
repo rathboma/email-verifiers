@@ -1,6 +1,12 @@
 (function() {
   'use strict';
 
+  function maybeTrack(...parts) {
+    if (window.fathom && typeof window.fathom.trackEvent === 'function') {
+      window.fathom.trackEvent(parts.join("-"));
+    }
+  }
+
   // Function to extract domain from URL
   function getDomain(url) {
     try {
@@ -29,14 +35,27 @@
       { domain: 'zerobounce.com', newUrl: 'https://aff.zerobounce.net/e19rG6'},
     ]
 
-    const found = referralCodes.find(({domain: d}) => domain.includes(d))
-    if (!found) return url
-    // some sites need a totally new link
-    if (found.newUrl) return found.newUrl
     try {
+      const found = referralCodes.find(({domain: d}) => domain.includes(d))
+      if (!found) {
+        return url
+      }
+
+      let result = null
+      // some sites need a totally new link
+      if (found.newUrl) {
+        result = found.newUrl
+      }
       const urlObj = new URL(url)
       urlObj.searchParams.set(found.key, found.code)
-      return urlObj.toString()
+      result = urlObj.toString()
+
+      if (result) {
+        maybeTrack('referral', domain)
+        return result
+      } else {
+        return url
+      }
     } catch (e) {
       return url
     }
@@ -50,10 +69,9 @@
 
     if (!domain) return;
 
+    maybeTrack('click', domain)
     // Fire Fathom tracking event
-    if (window.fathom && typeof window.fathom.trackEvent === 'function') {
-      window.fathom.trackEvent('click-' + domain);
-    }
+
 
     // Modify the URL with ref parameter
     const modifiedUrl = addTrackingParameter(addRefParameter(originalUrl), domain);
