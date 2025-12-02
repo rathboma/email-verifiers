@@ -33,7 +33,7 @@
       { domain: 'emaillistverify.com', key: 'red', code: 'rathbo'},
       { domain: 'usebouncer.com', newUrl: 'https://withlove.usebouncer.com/ptpivxlk1iee'},
       { domain: 'zerobounce.com', newUrl: 'https://aff.zerobounce.net/e19rG6'},
-      { domain: 'kickbox.com', newUrl: 'https://app.kickbox.com/signup?fp_ref=matthew72'},
+      { domain: 'kickbox.com', newUrl: 'https://kickbox.com?fp_ref=evcom'},
     ]
 
     try {
